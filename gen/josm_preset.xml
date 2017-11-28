@@ -9,7 +9,7 @@
 			<!-- Feste Werte -->
 			<key key="xmas:feature" value="tree"/>
 			<!-- Variable Werte -->
-			<text key="xmas:location" text="Lage" default="" delete_if_empty="true"/>
+			<text key="xmas:location" text="Location" de.text="Lage" default="" delete_if_empty="true"/>
 		</item>
 		<item name="Christmas market" de.name="Weihnachtsmarkt" icon="market.png">
 			<link href="http://wiki.openstreetmap.org/wiki/DE:Tag:xmas"/>
@@ -17,23 +17,23 @@
 			<key key="xmas:feature" value="market"/>
 			<!-- Variable Werte -->
 			<text key="xmas:name" text="Name" default="" delete_if_empty="true"/>
-			<text key="xmas:location" text="Location" default="" delete_if_empty="true"/>
-			<text key="xmas:day_date" text="Zeitraum" default="" delete_if_empty="true"/>
-			<text key="xmas:opening_hours" text="Opening hours (xmas)" default="" delete_if_empty="true"/>
-			<text key="opening_hours" text="Opening hours" default="" delete_if_empty="true"/>
+			<text key="xmas:location" text="Location" de.text="Lage" default="" delete_if_empty="true"/>
+			<text key="xmas:day_date" text="Date range" de.text="Datumsbereich" default="" delete_if_empty="true"/>
+			<text key="xmas:opening_hours" text="Opening hours (xmas)" de.text="&#xD6;ffnungszeiten (xmas)" default="" delete_if_empty="true"/>
+			<text key="opening_hours" text="Opening hours" de.text="&#xD6;ffnungszeiten" default="" delete_if_empty="true"/>
 			<text key="xmas:url" text="Website" default="" delete_if_empty="true"/>
 			<text key="xmas:note" text="Note" default="" delete_if_empty="true"/>
 		</item>
-		<item name="Christmas event" icon="event.png">
+		<item name="Christmas event" de.name="Weihnachtsanlass" icon="event.png">
 			<link href="http://wiki.openstreetmap.org/wiki/Key:xmas:feature" de.href="http://wiki.openstreetmap.org/wiki/DE:Key:xmas:feature" fr.href="http://wiki.openstreetmap.org/wiki/FR:Key:xmas:feature"/>
 			<!-- Feste Werte -->
 			<key key="xmas:feature" value="event"/>
 			<!-- Variable Werte -->
 			<text key="xmas:name" text="Name" default="" delete_if_empty="true"/>
-			<text key="xmas:location" text="Lage" default="" delete_if_empty="true"/>
-			<text key="xmas:day_date" text="Zeitraum" default="" delete_if_empty="true"/>
-			<text key="xmas:opening_hours" text="Opening hours (xmas)" default="" delete_if_empty="true"/>
-			<text key="opening_hours" text="Opening hours" default="" delete_if_empty="true"/>
+			<text key="xmas:location" text="Location" de.text="Lage" default="" delete_if_empty="true"/>
+			<text key="xmas:day_date" text="Date range" de.text="Datumsbereich" default="" delete_if_empty="true"/>
+			<text key="xmas:opening_hours" text="Opening hours (xmas)" de.text="&#xD6;ffnungszeiten (xmas)" default="" delete_if_empty="true"/>
+			<text key="opening_hours" text="Opening hours" de.text="&#xD6;ffnungszeiten" default="" delete_if_empty="true"/>
 			<text key="xmas:url" text="Website" default="" delete_if_empty="true"/>
 			<text key="xmas:note" text="Note" default="" delete_if_empty="true"/>
 		</item>
@@ -43,9 +43,9 @@
 			<key key="xmas:feature" value="pyramid"/>
 			<!-- Variable Werte -->
 			<text key="xmas:name" text="Name" default="" delete_if_empty="true"/>
-			<text key="xmas:location" text="Lage" default="" delete_if_empty="true"/>
-			<text key="xmas:day_date" text="Zeitraum" default="" delete_if_empty="true"/>
-			<text key="xmas:note" text="Note" default="" delete_if_empty="true"/>
+			<text key="xmas:location" text="Location" de.text="Lage" default="" delete_if_empty="true"/>
+			<text key="xmas:day_date" text="Date range" de.text="Datumsbereich" default="" delete_if_empty="true"/>
+			<text key="xmas:note" text="Note" de.text="Hinweis" default="" delete_if_empty="true"/>
 		</item>
 	</group>
 </presets>

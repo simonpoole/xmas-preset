@@ -1,0 +1,83 @@
+# Translators:
+# Nuno Caldeira <hello@iamnunocaldeira.com>, 2017
+# Rui <xymarior@yandex.com>, 2017
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2017-11-28 20:38+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Rui <xymarior@yandex.com>, 2017\n"
+"Language-Team: Portuguese (https://www.transifex.com/openstreetmap/teams/26285/pt/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: pt\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: master_preset.xml:8(group:name|group:Christmas)
+msgid "Christmas"
+msgstr ""
+
+#: master_preset.xml:31(item:name|group:Christmas|preset:Christmas_event)
+msgid "Christmas event"
+msgstr ""
+
+#: master_preset.xml:18(item:name|group:Christmas|preset:Christmas_market)
+msgid "Christmas market"
+msgstr ""
+
+#: master_preset.xml:46(item:name|group:Christmas|preset:Christmas_pyramid)
+msgid "Christmas pyramid"
+msgstr ""
+
+#: master_preset.xml:9(item:name|group:Christmas|preset:Christmas_tree)
+msgid "Christmas tree"
+msgstr ""
+
+#: master_preset.xml:25(text:text|group:Christmas|preset:Christmas_market|key:xmas:day_date)
+#: master_preset.xml:40(text:text|group:Christmas|preset:Christmas_event|key:xmas:day_date)
+#: master_preset.xml:55(text:text|group:Christmas|preset:Christmas_pyramid|key:xmas:day_date)
+msgid "Date range"
+msgstr "Intervalo de datas"
+
+#: master_preset.xml:16(text:text|group:Christmas|preset:Christmas_tree|key:xmas:location)
+#: master_preset.xml:24(text:text|group:Christmas|preset:Christmas_market|key:xmas:location)
+#: master_preset.xml:39(text:text|group:Christmas|preset:Christmas_event|key:xmas:location)
+#: master_preset.xml:54(text:text|group:Christmas|preset:Christmas_pyramid|key:xmas:location)
+msgid "Location"
+msgstr "Localização"
+
+#: master_preset.xml:23(text:text|group:Christmas|preset:Christmas_market|key:xmas:name)
+#: master_preset.xml:38(text:text|group:Christmas|preset:Christmas_event|key:xmas:name)
+#: master_preset.xml:53(text:text|group:Christmas|preset:Christmas_pyramid|key:xmas:name)
+msgid "Name"
+msgstr "Nome"
+
+#: master_preset.xml:29(text:text|group:Christmas|preset:Christmas_market|key:xmas:note)
+#: master_preset.xml:44(text:text|group:Christmas|preset:Christmas_event|key:xmas:note)
+#: master_preset.xml:56(text:text|group:Christmas|preset:Christmas_pyramid|key:xmas:note)
+msgid "Note"
+msgstr "Nota"
+
+#: master_preset.xml:27(text:text|group:Christmas|preset:Christmas_market|key:opening_hours)
+#: master_preset.xml:42(text:text|group:Christmas|preset:Christmas_event|key:opening_hours)
+msgid "Opening hours"
+msgstr "Horário de abertura"
+
+#: master_preset.xml:26(text:text|group:Christmas|preset:Christmas_market|key:xmas:opening_hours)
+#: master_preset.xml:41(text:text|group:Christmas|preset:Christmas_event|key:xmas:opening_hours)
+msgid "Opening hours (xmas)"
+msgstr ""
+
+#: master_preset.xml:28(text:text|group:Christmas|preset:Christmas_market|key:xmas:url)
+#: master_preset.xml:43(text:text|group:Christmas|preset:Christmas_event|key:xmas:url)
+msgid "Website"
+msgstr "Sítio oficial"
+
+#. Put one translator per line, in the form of NAME <EMAIL>, YEAR1, YEAR2
+#: master_preset.xml0(None)
+msgid "translator-credits"
+msgstr ""
+"Guttorm Flatabø - dittaeva 2015\n"
+"Duarte Carreira - dncpax, 2015\n"
+"Rui <xymarior@yandex.com>, 2016"
