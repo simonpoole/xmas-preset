@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2017-11-28 21:33+0100\n"
+"POT-Creation-Date: 2017-12-12 15:46+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -9,51 +9,51 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: master_preset.xml:8(group:name|group:Christmas)
+#: master_preset.xml:9(group:name|group:Christmas)
 msgid "Christmas"
 msgstr ""
 
-#: master_preset.xml:31(item:name|group:Christmas|preset:Christmas_event)
+#: master_preset.xml:32(item:name|group:Christmas|preset:Christmas_event)
 msgid "Christmas event"
 msgstr ""
 
-#: master_preset.xml:18(item:name|group:Christmas|preset:Christmas_market)
+#: master_preset.xml:19(item:name|group:Christmas|preset:Christmas_market)
 msgid "Christmas market"
 msgstr ""
 
-#: master_preset.xml:46(item:name|group:Christmas|preset:Christmas_pyramid)
+#: master_preset.xml:47(item:name|group:Christmas|preset:Christmas_pyramid)
 msgid "Christmas pyramid"
 msgstr ""
 
-#: master_preset.xml:9(item:name|group:Christmas|preset:Christmas_tree)
+#: master_preset.xml:10(item:name|group:Christmas|preset:Christmas_tree)
 msgid "Christmas tree"
 msgstr ""
 
-#: master_preset.xml:25(text:text|group:Christmas|preset:Christmas_market|key:xmas:day_date) master_preset.xml:40(text:text|group:Christmas|preset:Christmas_event|key:xmas:day_date) master_preset.xml:55(text:text|group:Christmas|preset:Christmas_pyramid|key:xmas:day_date)
+#: master_preset.xml:26(text:text|group:Christmas|preset:Christmas_market|key:xmas:day_date) master_preset.xml:41(text:text|group:Christmas|preset:Christmas_event|key:xmas:day_date) master_preset.xml:56(text:text|group:Christmas|preset:Christmas_pyramid|key:xmas:day_date)
 msgid "Date range"
 msgstr ""
 
-#: master_preset.xml:16(text:text|group:Christmas|preset:Christmas_tree|key:xmas:location) master_preset.xml:24(text:text|group:Christmas|preset:Christmas_market|key:xmas:location) master_preset.xml:39(text:text|group:Christmas|preset:Christmas_event|key:xmas:location) master_preset.xml:54(text:text|group:Christmas|preset:Christmas_pyramid|key:xmas:location)
+#: master_preset.xml:17(text:text|group:Christmas|preset:Christmas_tree|key:xmas:location) master_preset.xml:25(text:text|group:Christmas|preset:Christmas_market|key:xmas:location) master_preset.xml:40(text:text|group:Christmas|preset:Christmas_event|key:xmas:location) master_preset.xml:55(text:text|group:Christmas|preset:Christmas_pyramid|key:xmas:location)
 msgid "Location"
 msgstr ""
 
-#: master_preset.xml:23(text:text|group:Christmas|preset:Christmas_market|key:xmas:name) master_preset.xml:38(text:text|group:Christmas|preset:Christmas_event|key:xmas:name) master_preset.xml:53(text:text|group:Christmas|preset:Christmas_pyramid|key:xmas:name)
+#: master_preset.xml:24(text:text|group:Christmas|preset:Christmas_market|key:xmas:name) master_preset.xml:39(text:text|group:Christmas|preset:Christmas_event|key:xmas:name) master_preset.xml:54(text:text|group:Christmas|preset:Christmas_pyramid|key:xmas:name)
 msgid "Name"
 msgstr ""
 
-#: master_preset.xml:29(text:text|group:Christmas|preset:Christmas_market|key:xmas:note) master_preset.xml:44(text:text|group:Christmas|preset:Christmas_event|key:xmas:note) master_preset.xml:56(text:text|group:Christmas|preset:Christmas_pyramid|key:xmas:note)
+#: master_preset.xml:30(text:text|group:Christmas|preset:Christmas_market|key:xmas:note) master_preset.xml:45(text:text|group:Christmas|preset:Christmas_event|key:xmas:note) master_preset.xml:59(text:text|group:Christmas|preset:Christmas_pyramid|key:xmas:note)
 msgid "Note"
 msgstr ""
 
-#: master_preset.xml:27(text:text|group:Christmas|preset:Christmas_market|key:opening_hours) master_preset.xml:42(text:text|group:Christmas|preset:Christmas_event|key:opening_hours)
+#: master_preset.xml:28(text:text|group:Christmas|preset:Christmas_market|key:opening_hours) master_preset.xml:43(text:text|group:Christmas|preset:Christmas_event|key:opening_hours) master_preset.xml:58(text:text|group:Christmas|preset:Christmas_pyramid|key:opening_hours)
 msgid "Opening hours"
 msgstr ""
 
-#: master_preset.xml:26(text:text|group:Christmas|preset:Christmas_market|key:xmas:opening_hours) master_preset.xml:41(text:text|group:Christmas|preset:Christmas_event|key:xmas:opening_hours)
+#: master_preset.xml:27(text:text|group:Christmas|preset:Christmas_market|key:xmas:opening_hours) master_preset.xml:42(text:text|group:Christmas|preset:Christmas_event|key:xmas:opening_hours) master_preset.xml:57(text:text|group:Christmas|preset:Christmas_pyramid|key:xmas:opening_hours)
 msgid "Opening hours (xmas)"
 msgstr ""
 
-#: master_preset.xml:28(text:text|group:Christmas|preset:Christmas_market|key:xmas:url) master_preset.xml:43(text:text|group:Christmas|preset:Christmas_event|key:xmas:url)
+#: master_preset.xml:29(text:text|group:Christmas|preset:Christmas_market|key:xmas:url) master_preset.xml:44(text:text|group:Christmas|preset:Christmas_event|key:xmas:url)
 msgid "Website"
 msgstr ""
 

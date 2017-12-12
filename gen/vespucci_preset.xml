@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <presets xmlns="http://josm.openstreetmap.de/tagging-preset-1.0"
 	shortdescription="Xmas Preset"
-	description="Xmas preset for Vespucci and JOSM, based on the original JOSM version from Jan Tappenbeck">
+	description="Xmas preset for Vespucci and JOSM, based on the original JOSM version from Jan Tappenbeck"
+	object_keys="xmas:feature" >
 	<!-- Icons have been derived from mainly from http://osm-icons.org/ Format 
 		description: https://josm.openstreetmap.de/wiki/TaggingPresets -->
 	<!-- Groups -->
@@ -23,9 +24,9 @@
 			<text key="xmas:name" text="Name" default="" delete_if_empty="true" />
 			<text key="xmas:location" text="Location" de.text="Lage" default="" delete_if_empty="true" />
 			<text key="xmas:day_date" text="Date range" de.text="Datumsbereich" default="" delete_if_empty="true" />
-			<text key="xmas:opening_hours" text="Opening hours (xmas)" de.text="Öffnungszeiten (xmas)" default="" delete_if_empty="true" />
+			<text key="xmas:opening_hours" text="Opening hours (xmas)" de.text="Öffnungszeiten (xmas)" default="" delete_if_empty="true" value_type="opening_hours" />
 			<text key="opening_hours" text="Opening hours" de.text="Öffnungszeiten" default="" delete_if_empty="true" />
-			<text key="xmas:url" text="Website" default="" delete_if_empty="true" />
+			<text key="xmas:url" text="Website" default="" delete_if_empty="true" value_type="website" />
 			<text key="xmas:note" text="Note" default="" delete_if_empty="true" />
 		</item>
 		<item name="Christmas event" de.name="Weihnachtsanlass" icon="event.png">
@@ -38,9 +39,9 @@
 			<text key="xmas:name" text="Name" default="" delete_if_empty="true" />
 			<text key="xmas:location" text="Location" de.text="Lage" default="" delete_if_empty="true" />
 			<text key="xmas:day_date" text="Date range" de.text="Datumsbereich" default="" delete_if_empty="true" />
-			<text key="xmas:opening_hours" text="Opening hours (xmas)" de.text="Öffnungszeiten (xmas)" default="" delete_if_empty="true" />
+			<text key="xmas:opening_hours" text="Opening hours (xmas)" de.text="Öffnungszeiten (xmas)" default="" delete_if_empty="true" value_type="opening_hours" />
 			<text key="opening_hours" text="Opening hours" de.text="Öffnungszeiten" default="" delete_if_empty="true" />
-			<text key="xmas:url" text="Website" default="" delete_if_empty="true" />
+			<text key="xmas:url" text="Website" default="" delete_if_empty="true" value_type="website" />
 			<text key="xmas:note" text="Note" default="" delete_if_empty="true" />
 		</item>
 		<item name="Christmas pyramid" de.name="Weihnachtspyramide" icon="pyramid.png">
@@ -53,6 +54,8 @@
 			<text key="xmas:name" text="Name" default="" delete_if_empty="true" />
 			<text key="xmas:location" text="Location" de.text="Lage" default="" delete_if_empty="true" />
 			<text key="xmas:day_date" text="Date range" de.text="Datumsbereich" default="" delete_if_empty="true" />
+			<text key="xmas:opening_hours" text="Opening hours (xmas)" de.text="Öffnungszeiten (xmas)" default="" delete_if_empty="true" value_type="opening_hours" />
+			<text key="opening_hours" text="Opening hours" de.text="Öffnungszeiten" default="" delete_if_empty="true" />
 			<text key="xmas:note" text="Note" de.text="Hinweis" default="" delete_if_empty="true" />
 		</item>
 	</group>

@@ -45,6 +45,8 @@
 			<text key="xmas:name" text="Name" default="" delete_if_empty="true"/>
 			<text key="xmas:location" text="Location" de.text="Lage" default="" delete_if_empty="true"/>
 			<text key="xmas:day_date" text="Date range" de.text="Datumsbereich" default="" delete_if_empty="true"/>
+			<text key="xmas:opening_hours" text="Opening hours (xmas)" de.text="&#xD6;ffnungszeiten (xmas)" default="" delete_if_empty="true"/>
+			<text key="opening_hours" text="Opening hours" de.text="&#xD6;ffnungszeiten" default="" delete_if_empty="true"/>
 			<text key="xmas:note" text="Note" de.text="Hinweis" default="" delete_if_empty="true"/>
 		</item>
 	</group>
