@@ -1,42 +1,69 @@
 /*
  */
  
+buildscript {
+    repositories {
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
+    }
+    dependencies {
+        classpath "com.github.breadmoirai:github-release:2.2.12"
+    }
+}
+
+plugins {
+    id "de.undercouch.download" version "4.1.2"
+}
+
 apply plugin: 'java'
+apply plugin: "com.github.breadmoirai.github-release"
 
 repositories {
 	mavenCentral()
 }
 
 ext {
-	preset_file = 'master_preset.xml'
-	josm_preset_file = 'josm_preset.xml'
-	vespucci_preset_file = 'vespucci_preset.xml'
+    preset_file = 'master_preset.xml'
+    josm_preset_file = 'josm_preset.xml'
+    vespucci_preset_file = 'vespucci_preset.xml'
+    vespucci_preset_version = '1.16'
+    temp = 'build/temp/'
+    tempDir = file(temp)
+    github_token = System.getenv('GITHUB_TOKEN')
+}
+
+configurations {
+    resoveableRuntimeOnly.extendsFrom runtimeOnly {
+        canBeResolved = true
+    }
 }
 
 dependencies {
-	runtime 'ch.poole:preset-utils:0.23.2'
+    resoveableRuntimeOnly 'ch.poole:preset-utils:0.38.0'
 }
-
 
 defaultTasks 'generateAllPresetTypes'
 
 task copyCss(type: Copy) {
-	from zipTree(project.configurations.runtime.filter{it.name.startsWith('preset-utils')}.singleFile)
+    from zipTree(project.configurations.resoveableRuntimeOnly.filter{it.name.startsWith('preset-utils')}.singleFile)
     include "preset.css"
     into new File(projectDir.getPath() + '/website')
 }
 
 task copyResources(type: Copy) {
-	from zipTree(project.configurations.runtime.filter{it.name.startsWith('preset-utils')}.singleFile)
+    from zipTree(project.configurations.resoveableRuntimeOnly.filter{it.name.startsWith('preset-utils')}.singleFile)
     include "josm-preset-1.0.xlmns"
-    include "vespucci-preset-1.0.xlmns"
-	include "toJOSM.xslt"
+    include "vespucci-preset-${vespucci_preset_version}.xlmns"
+    include "toJOSM.xslt"
+    include "href2wiki.xslt"
+    include "wiki2href.xslt"
     into new File(buildDir.getPath() + '/xml')
 }
 
 task updateWebsite(dependsOn: ["copyCss"], type: JavaExec) {
     main = "ch.poole.osm.presetutils.Preset2Html"
-    classpath = configurations.runtime
+    classpath = configurations.resoveableRuntimeOnly
     args('-input',    preset_file,
     	 '-output',   'index.html',
     	 '-vespucci', 'https://github.com/simonpoole/' + project.name + '/raw/gh-pages/gen/xmas.zip', 
@@ -47,7 +74,7 @@ updateWebsite.description = 'Update the website'
 
 task updatePot(type: JavaExec) {
     main = "ch.poole.osm.presetutils.Preset2Pot"
-    classpath = configurations.runtime
+    classpath = configurations.resoveableRuntimeOnly
     args('-input',  preset_file,
     	 '-output', 'i18n/preset.pot')
 }
@@ -64,6 +91,36 @@ task updateTranslations(type: Exec) {
 updateTranslations.group = 'transifex'
 updateTranslations.description = 'Update translations by executing the transifex tx utility'
 
+task copyTranslations(dependsOn: ['updateTranslations'], type: Copy) {
+    from 'i18n'
+    into "$buildDir/temp/i18n/data"
+    rename 'preset_(.*).po', '$1.po'
+    rename { filename -> filename.replace '-r', '_' }
+    include "*.po"
+    include "*.pot"
+}
+
+task downloadLangScript(type: Download) {
+    acceptAnyCertificate true
+    src 'https://josm.openstreetmap.de/export/HEAD/osm/applications/editors/josm/i18n/i18n.pl'
+    dest tempDir.getPath() + "/" + 'i18n.pl'
+}
+
+task patchLangScript(dependsOn: ['downloadLangScript']) {
+    doLast {
+        ant.replace(token:"/\\/", value:"/") {
+            fileset(dir: tempDir.getPath(), includes: 'i18n.pl')
+        }
+    }
+}
+
+// generate JOSM .lang files
+task generateLang(dependsOn: ['patchLangScript'], type: Exec) {
+    workingDir tempDir.getPath() + '/i18n/data'
+    commandLine 'perl', '../../i18n.pl', '--basedir=.', '--potfile=preset.pot', '*.po'
+}
+
+
 // tasks to generate a zipped preset for JOSM
 task josmIcons(type: Copy) {
   from projectDir
@@ -77,8 +134,8 @@ task josmIcons(type: Copy) {
   ])
 }
 
-task transformToJosm(dependsOn: ["josmIcons","copyResources"], type: Exec) {
-	def output = 'gen/' + josm_preset_file
+task transformToJosm(dependsOn: ["josmIcons","copyResources","vespucciIcons"], type: Exec) {
+	def output = 'build/gen/' + josm_preset_file
 	mkdir('gen')
 	if (System.getProperty('os.name').toLowerCase(Locale.ROOT).contains('windows')) {
 		// remove extensions
@@ -93,7 +150,7 @@ task transformToJosm(dependsOn: ["josmIcons","copyResources"], type: Exec) {
 }
 
 task generateAndValidateJosm(dependsOn: ["transformToJosm"], type: Exec) {
-	def input = 'gen/' + josm_preset_file
+	def input = 'build/gen/' + josm_preset_file
 	if (System.getProperty('os.name').toLowerCase(Locale.ROOT).contains('windows')) {
     	// validation
     	commandLine 'cmd', '/c', 'xmlstarlet', 'val', '-s', 'build/xml/josm-preset-1.0.xlmns', '-e', input
@@ -103,11 +160,13 @@ task generateAndValidateJosm(dependsOn: ["transformToJosm"], type: Exec) {
 	}	
 }
 
-task josmZip(dependsOn: ["generateAndValidateJosm"], type: Zip) {
-    baseName 'xmas-josm'
-    destinationDir = new File(projectDir, 'gen')
+task josmZip(dependsOn: ["generateAndValidateJosm", "copyTranslations", "generateLang"], type: Zip) {
+    archiveBaseName = 'xmas-josm'
+    destinationDirectory = new File(buildDir, 'gen')
     from ('icons/png')
-    from ('gen/' + josm_preset_file)
+    from ('build/gen/' + josm_preset_file)
+    from (tempDir.getPath() + "/" + 'i18n')
+    exclude ('data/*.pot', 'data/*.po')
 }
 josmZip.group = 'preset'
 josmZip.description = 'Generate zipped preset file for JOSM'
@@ -116,7 +175,7 @@ josmZip.description = 'Generate zipped preset file for JOSM'
 task vespucciIcons(type: Copy) {
   from projectDir
   include preset_file
-  into 'gen'
+  into 'build/gen'
   filteringCharset = 'UTF-8'
   rename (preset_file, vespucci_preset_file)
   expand([
@@ -126,11 +185,11 @@ task vespucciIcons(type: Copy) {
 }
 
 task generateAndValidateVespucci(dependsOn: ["vespucciIcons","copyResources"], type: Exec) {
-	def input = 'gen/' + vespucci_preset_file
-	mkdir('gen')
+	def input = 'build/gen/' + vespucci_preset_file
+	mkdir('build/gen')
 	if (System.getProperty('os.name').toLowerCase(Locale.ROOT).contains('windows')) {
     	// validation
-    	commandLine 'cmd', '/c', 'xmlstarlet', 'val', '-s', 'build/xml/vespucci-preset-1.0.xlmns', '-e', input
+    	commandLine 'cmd', '/c', 'xmlstarlet', 'val', '-s', 'build/xml/vespucci-preset-1.16.xlmns', '-e', input
 	} else {
     	// validation
     	commandLine 'xmlstarlet', 'val', '-s', 'build/xml/vespucci-preset-1.0.xlmns', '-e', input
@@ -138,33 +197,40 @@ task generateAndValidateVespucci(dependsOn: ["vespucciIcons","copyResources"], t
 }
 
 task vespucciZip(dependsOn: ["generateAndValidateVespucci"], type: Zip) {
-    baseName 'xmas'
-    destinationDir = new File(projectDir, 'gen')
+    archiveBaseName = 'xmas'
+    destinationDirectory = new File(buildDir, 'gen')
     from ('icons/png')
-    from ('gen/' + vespucci_preset_file)
+    from ('build/gen/' + vespucci_preset_file)
     from ('i18n')
     exclude ('*.pot')
 }
 vespucciZip.group = 'preset'
 vespucciZip.description = 'Generate zipped preset file for vespucci'
 
-task vespucciNoTranslationsZip(dependsOn: ["generateAndValidateVespucci"], type: Zip) {
-    baseName 'vespucci_zip_no_translations'
-    destinationDir = new File(projectDir, 'gen')
-    from ('icons/png')
-    from ('gen/' + vespucci_preset_file)
+githubRelease {
+    targetCommitish "gh-pages"
+    token "${github_token}"
+    owner "simonpoole"
+    tagName "${version}"
+    releaseName "${version}"
+    body '''\
+## Files
+    
+### Vespucci
+_xmas.zip_ - preset for Vespucci with icons 
+
+### JOSM
+_xmas_josm.zip_ - preset for JOSM using icons from this project and translations
+
+'''
+    releaseAssets new File(buildDir, 'gen').listFiles()
+    overwrite true
 }
-vespucciNoTranslationsZip.group = 'preset'
-vespucciNoTranslationsZip.description = 'Generate zipped preset file for vespucci without translations'
 
 // generate everything
-task generateAllPresetTypes {
-	dependsOn "vespucciNoTranslationsZip"
-	dependsOn "vespucciZip" 
-	dependsOn "josmZip"
-	dependsOn "updatePot"
-	dependsOn "updateWebsite"
+build {
+    dependsOn "vespucciZip" 
+    dependsOn "josmZip"
+    dependsOn "updatePot"
+    dependsOn "updateWebsite"
 } 
-generateAllPresetTypes.group = 'preset'
-generateAllPresetTypes.description = 'Generate all preset types'
-
