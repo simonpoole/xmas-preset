@@ -58,5 +58,61 @@
 			<text key="opening_hours" text="Opening hours" de.text="Öffnungszeiten" default="" delete_if_empty="true" />
 			<text key="xmas:note" text="Note" de.text="Hinweis" default="" delete_if_empty="true" />
 		</item>
+        <item name="Shop" de.name="Laden" icon="${ICONPATH}present.${ICONTYPE}">
+            <link href="http://wiki.openstreetmap.org/wiki/Key:xmas:feature"
+                de.href="http://wiki.openstreetmap.org/wiki/DE:Key:xmas:feature"
+                fr.href="http://wiki.openstreetmap.org/wiki/FR:Key:xmas:feature" />
+            <!-- Feste Werte -->
+            <key key="xmas:feature" value="crib" />
+            <!-- Variable Werte -->
+            <text key="xmas:name" text="Name" default="" delete_if_empty="true" />
+            <text key="xmas:location" text="Location" de.text="Lage" default="" delete_if_empty="true" />
+            <text key="xmas:day_date" text="Date range" de.text="Datumsbereich" default="" delete_if_empty="true" />
+            <text key="xmas:opening_hours" text="Opening hours (xmas)" de.text="Öffnungszeiten (xmas)" default="" delete_if_empty="true" value_type="opening_hours" />
+            <text key="opening_hours" text="Opening hours" de.text="Öffnungszeiten" default="" delete_if_empty="true" />
+            <text key="xmas:note" text="Note" de.text="Hinweis" default="" delete_if_empty="true" />
+        </item>
+        <item name="Christmas lighting" de.name="Weihnachtsbeleuchtung" icon="${ICONPATH}star.${ICONTYPE}">
+            <link href="http://wiki.openstreetmap.org/wiki/Key:xmas:feature"
+                de.href="http://wiki.openstreetmap.org/wiki/DE:Key:xmas:feature"
+                fr.href="http://wiki.openstreetmap.org/wiki/FR:Key:xmas:feature" />
+            <!-- Feste Werte -->
+            <key key="xmas:feature" value="lighting" />
+            <!-- Variable Werte -->
+            <text key="xmas:name" text="Name" default="" delete_if_empty="true" />
+            <text key="xmas:location" text="Location" de.text="Lage" default="" delete_if_empty="true" />
+            <text key="xmas:day_date" text="Date range" de.text="Datumsbereich" default="" delete_if_empty="true" />
+            <text key="xmas:opening_hours" text="Opening hours (xmas)" de.text="Öffnungszeiten (xmas)" default="" delete_if_empty="true" value_type="opening_hours" />
+            <text key="opening_hours" text="Opening hours" de.text="Öffnungszeiten" default="" delete_if_empty="true" />
+            <text key="xmas:note" text="Note" de.text="Hinweis" default="" delete_if_empty="true" />
+        </item>
+        <item name="Nativity scene" de.name="Krippe" icon="${ICONPATH}nativity.${ICONTYPE}">
+            <link href="http://wiki.openstreetmap.org/wiki/Key:xmas:feature"
+                de.href="http://wiki.openstreetmap.org/wiki/DE:Key:xmas:feature"
+                fr.href="http://wiki.openstreetmap.org/wiki/FR:Key:xmas:feature" />
+            <!-- Feste Werte -->
+            <key key="xmas:feature" value="crib" />
+            <!-- Variable Werte -->
+            <text key="xmas:name" text="Name" default="" delete_if_empty="true" />
+            <text key="xmas:location" text="Location" de.text="Lage" default="" delete_if_empty="true" />
+            <text key="xmas:day_date" text="Date range" de.text="Datumsbereich" default="" delete_if_empty="true" />
+            <text key="xmas:opening_hours" text="Opening hours (xmas)" de.text="Öffnungszeiten (xmas)" default="" delete_if_empty="true" value_type="opening_hours" />
+            <text key="opening_hours" text="Opening hours" de.text="Öffnungszeiten" default="" delete_if_empty="true" />
+            <text key="xmas:note" text="Note" de.text="Hinweis" default="" delete_if_empty="true" />
+        </item>
+        <item name="Nativity scene museum" de.name="Krippenmuseum" icon="${ICONPATH}nativity_museum.${ICONTYPE}">
+            <link href="http://wiki.openstreetmap.org/wiki/Key:xmas:feature"
+                de.href="http://wiki.openstreetmap.org/wiki/DE:Key:xmas:feature"
+                fr.href="http://wiki.openstreetmap.org/wiki/FR:Key:xmas:feature" />
+            <!-- Feste Werte -->
+            <key key="xmas:feature" value="crib_museum" />
+            <!-- Variable Werte -->
+            <text key="xmas:name" text="Name" default="" delete_if_empty="true" />
+            <text key="xmas:location" text="Location" de.text="Lage" default="" delete_if_empty="true" />
+            <text key="xmas:day_date" text="Date range" de.text="Datumsbereich" default="" delete_if_empty="true" />
+            <text key="xmas:opening_hours" text="Opening hours (xmas)" de.text="Öffnungszeiten (xmas)" default="" delete_if_empty="true" value_type="opening_hours" />
+            <text key="opening_hours" text="Opening hours" de.text="Öffnungszeiten" default="" delete_if_empty="true" />
+            <text key="xmas:note" text="Note" de.text="Hinweis" default="" delete_if_empty="true" />
+        </item>
 	</group>
 </presets>
