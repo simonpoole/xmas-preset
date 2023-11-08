@@ -24,6 +24,7 @@ repositories {
 }
 
 ext {
+    version = '1.0.0'
     preset_file = 'master_preset.xml'
     josm_preset_file = 'josm_preset.xml'
     vespucci_preset_file = 'vespucci_preset.xml'
