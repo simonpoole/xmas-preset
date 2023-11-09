@@ -67,8 +67,8 @@ task updateWebsite(dependsOn: ["copyCss"], type: JavaExec) {
     classpath = configurations.resoveableRuntimeOnly
     args('-input',    preset_file,
     	 '-output',   'index.html',
-    	 '-vespucci', 'https://github.com/simonpoole/' + project.name + '/raw/gh-pages/gen/xmas.zip', 
-    	 '-josm',     'https://github.com/simonpoole/' + project.name + '/raw/gh-pages/gen/xmas-josm.zip')
+    	 '-vespucci', 'https://github.com/simonpoole/' + project.name + '/releases/latest/download/xmas.zip', 
+    	 '-josm',     'https://github.com/simonpoole/' + project.name + '/releases/latest/download/xmas-josm.zip')
 }
 updateWebsite.group = 'preset utils'
 updateWebsite.description = 'Update the website'
